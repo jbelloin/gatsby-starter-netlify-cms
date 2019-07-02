@@ -50,8 +50,8 @@ collections:
             name: "section"
             widget: "object"
             fields:
-            - {label: "Text", name: "sectionText", optional: true, widget: "markdown"}
-            - {label: "Link", name: "sectionLink", optional: true, widget: "link"}
+            - {label: "Text", name: "sectionTextWrapper", optional: true, widget: "list", fields: {label: "Text", name: "sectionText", optional: true, widget: "markdown"}}
+            - {label: "Link", name: "sectionLinkWrapper", optional: true, widget: "list", fields: {label: "Link", name: "sectionLink", optional: true, widget: "link"}}
   - name: "pages"
     label: "Pages"
     files:

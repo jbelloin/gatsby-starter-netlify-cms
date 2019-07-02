@@ -7,16 +7,16 @@ import Layout from '../components/Layout';
 export const FicheConseilTemplate = ({
   helmet,
   title,
-  theme,
-  featuredImage,
+  themes,
+  image,
   chapeau,
   sections,
 }) => {
   console.log(
     'title, theme, featuredImage, chapeau, sections :',
     title,
-    theme,
-    featuredImage,
+    themes,
+    image,
     chapeau,
     sections,
   );
@@ -29,9 +29,14 @@ export const FicheConseilTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>theme : {theme}</p>
-            <p>featuredImage : {featuredImage}</p>
-            <p>chapeau : {chapeau}</p>
+            <div>
+              Themes:
+              {themes.map(t => (
+                <div key={t}>{t}</div>
+              ))}
+            </div>
+            <img src={image} alt="test" />
+            <p> {chapeau}</p>
             <p>sections : {sections}</p>
           </div>
         </div>
@@ -43,15 +48,18 @@ export const FicheConseilTemplate = ({
 FicheConseilTemplate.propTypes = {
   helmet: PropTypes.object,
   title: PropTypes.string,
-  theme: PropTypes.object,
-  featuredImage: PropTypes.object,
+  themes: PropTypes.array,
+  image: PropTypes.string,
   chapeau: PropTypes.string,
-  sections: PropTypes.object,
+  sections: PropTypes.array,
 };
 
 const FicheConseil = ({ data }) => {
   const { markdownRemark: post } = data;
-
+  console.log(
+    'post.frontmatter.featuredimage :',
+    post.frontmatter.featuredimage,
+  );
   return (
     <Layout>
       <FicheConseilTemplate
@@ -62,8 +70,8 @@ const FicheConseil = ({ data }) => {
           </Helmet>
         }
         title={post.frontmatter.title}
-        theme={post.frontmatter.theme}
-        featuredImage={post.frontmatter.featuredimage}
+        themes={post.frontmatter.theme}
+        image={post.frontmatter.featuredimage.childImageSharp.fluid.src}
         chapeau={post.frontmatter.chapeau}
         sections={post.frontmatter.sections}
       />
@@ -87,9 +95,14 @@ export const pageQuery = graphql`
       frontmatter {
         title
         theme
-        featuredimage { ... }
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         chapeau
-        sections
       }
     }
   }
