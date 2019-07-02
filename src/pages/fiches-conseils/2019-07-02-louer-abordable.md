@@ -1,5 +1,5 @@
 ---
-templateKey: blog-post
+templateKey: fiche-conseil
 title: Quels prêts pour financer mes travaux ?
 theme:
   - FIN
@@ -10,4 +10,3 @@ chapeau: >-
   les prêts à votre disposition pour vous aider à financer votre projet !
 sections: []
 ---
-
