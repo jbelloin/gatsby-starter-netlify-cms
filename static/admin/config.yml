@@ -20,6 +20,7 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Test field", name: "test", widget: "string"}
 
   - name: "fichesConseils"
     label: "Fiches conseils"
