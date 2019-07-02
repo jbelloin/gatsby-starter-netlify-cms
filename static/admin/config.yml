@@ -30,7 +30,16 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
+      - label: "Thème"
+        name: "theme"
+        widget: "select"
+        options: 
+        - { label: "Financement", value: "FIN" }
+        - { label: "Fiscalité", value: "FIS" }
+        - { label: "Gestion", value: "GES" }     
+        - { label: "Travaux", value: "TRA" }     
+      - {label: "Image", name: "featuredimage", widget: image}
+      - {label: "Chapeau", name: "title", widget: "text"}
       - label: "Section"
         name: "section"
         widget: "list"
