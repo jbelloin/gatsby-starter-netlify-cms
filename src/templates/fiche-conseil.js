@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
-import Content from '../components/Content';
 
 export const FicheConseilTemplate = ({
   helmet,
@@ -65,7 +63,7 @@ const FicheConseil = ({ data }) => {
         }
         title={post.frontmatter.title}
         theme={post.frontmatter.theme}
-        featuredImage={post.frontmatter.featuredImage}
+        featuredImage={post.frontmatter.featuredimage}
         chapeau={post.frontmatter.chapeau}
         sections={post.frontmatter.sections}
       />
@@ -89,7 +87,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         theme
-        featuredImage
+        featuredimage { ... }
         chapeau
         sections
       }
