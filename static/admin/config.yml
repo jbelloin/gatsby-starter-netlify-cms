@@ -6,21 +6,21 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Test field", name: "test", widget: "string"}
+  # - name: "blog"
+  #   label: "Blog"
+  #   folder: "src/pages/blog"
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  #   fields:
+  #     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Publish Date", name: "date", widget: "datetime"}
+  #     - {label: "Description", name: "description", widget: "text"}
+  #     - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
+  #     - {label: "Featured Image", name: "featuredimage", widget: image}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+  #     - {label: "Tags", name: "tags", widget: "list"}
+  #     - {label: "Test field", name: "test", widget: "string"}
 
   - name: "fichesConseils"
     label: "Fiches conseils"
@@ -28,11 +28,12 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "fiche-conseil"}
       - {label: "Title", name: "title", widget: "string"}
       - label: "Thème"
         name: "theme"
         widget: "select"
+        multiple: true
         options: 
         - { label: "Financement", value: "FIN" }
         - { label: "Fiscalité", value: "FIS" }
@@ -45,6 +46,8 @@ collections:
         widget: "list"
         fields:
         - {label: "Section Title", name: "sectionTitle", widget: "string"}
+        - {label: "Section text", name: "sectionText", widget: "markdown"}
+
   - name: "pages"
     label: "Pages"
     files:
