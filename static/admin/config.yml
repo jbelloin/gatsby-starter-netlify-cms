@@ -40,14 +40,22 @@ collections:
         - { label: "Gestion", value: "GES" }     
         - { label: "Travaux", value: "TRA" }     
       - {label: "Image", name: "featuredimage", widget: image}
-      - {label: "Chapeau", name: "title", widget: "text"}
-      - label: "Section"
-        name: "section"
+      - {label: "Chapeau", name: "chapeau", widget: "text"}
+      - label: "Sections"
+        name: "sections"
         widget: "list"
         fields:
-        - {label: "Section Title", name: "sectionTitle", widget: "string"}
-        - {label: "Section text", name: "sectionText", widget: "markdown"}
-
+          - {label: "Section title", name: "sectionTitle", widget: "string"}
+          - label: "Section text"
+            name: "sectionTextWrapper"
+            widget: "list"
+            fields:
+            - {label: "Text", name: "sectionText", widget: "markdown"}
+          - label: "Section link"
+            name: "sectionLinkWrapper"
+            widget: "list"
+            fields:
+            - {label: "Link", name: "sectionLink", widget: "link"}
   - name: "pages"
     label: "Pages"
     files:
