@@ -46,16 +46,12 @@ collections:
         widget: "list"
         fields:
           - {label: "Section title", name: "sectionTitle", widget: "string"}
-          - label: "Section text"
-            name: "sectionTextWrapper"
-            widget: "list"
+          - label : "Section detail"
+            name: "section"
+            widget: "object"
             fields:
-            - {label: "Text", name: "sectionText", widget: "markdown"}
-          - label: "Section link"
-            name: "sectionLinkWrapper"
-            widget: "list"
-            fields:
-            - {label: "Link", name: "sectionLink", widget: "link"}
+            - {label: "Text", name: "sectionText", optional: true, widget: "markdown"}
+            - {label: "Link", name: "sectionLink", optional: true, widget: "link"}
   - name: "pages"
     label: "Pages"
     files:
